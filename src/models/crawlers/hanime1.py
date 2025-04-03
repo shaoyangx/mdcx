@@ -61,11 +61,12 @@ def get_real_url(html, number):
                 raise Exception(debug_info)
             html = etree.fromstring(html, etree.HTMLParser())
         raw_title = html.xpath('//h3[@id="shareBtn-title"]/text()')[0].strip()
-        title = re.sub(r"[\W_]", "", raw_title).upper()
+        originaltitle = raw_title.replace("[中文字幕]", "").strip()
+        title = re.sub(r"[\W_]", "", originaltitle).upper()
         number = re.sub(r"[\W_]", "", number).upper()
         # 比较标题与番号是否匹配
         if number.upper() in title:
-            return detail_url,html
+            return detail_url,html,originaltitle
     return ""
 
 
@@ -111,7 +112,7 @@ def main(number,appoint_url="",log_info="",req_web="",language="zh_cn"):
                 raise Exception(debug_info)
 
         if real_url:
-            real_url,html_info = get_real_url(html, number)
+            real_url,html_info,originaltitle = get_real_url(html, number)
             # 搜索结果页面有条目，但无法匹配到番号
             if not real_url:
                 debug_info = "搜索结果: 未匹配到番号！2"
@@ -127,9 +128,9 @@ def main(number,appoint_url="",log_info="",req_web="",language="zh_cn"):
             )
             try:
                 dic = {
-                    "number": number,
+                    "number": "",
                     "title": title,
-                    "originaltitle": title,
+                    "originaltitle": originaltitle,
                     "actor": "",
                     "outline": outline,
                     "originalplot": outline,
