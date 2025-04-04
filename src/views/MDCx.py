@@ -11174,6 +11174,7 @@ class Ui_MDCx(object):
         self.comboBox_website_all.setItemText(11, _translate("MDCx", "mgstage"))
         self.comboBox_website_all.setItemText(12, _translate("MDCx", "getchu_dmm"))
         self.comboBox_website_all.setItemText(13, _translate("MDCx", "getchu"))
+        self.comboBox_website_all.setItemText(12, _translate("MDCx", "hanimation"))
         self.comboBox_website_all.setItemText(14, _translate("MDCx", "hscangku"))
         self.comboBox_website_all.setItemText(15, _translate("MDCx", "theporndb"))
         self.comboBox_website_all.setItemText(16, _translate("MDCx", "kin8"))

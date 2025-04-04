@@ -27,7 +27,7 @@ from models.crawlers import (
     freejavbt,
     getchu,
     getchu_dmm,
-    hanime1,
+    hanimation,
     giga,
     hdouban,
     hscangku,
@@ -196,8 +196,8 @@ def _call_crawler(json_data, website, language, file_number, short_number, mosai
         json_data = json.loads(getchu.main(file_number, appoint_url, log_info, req_web, language))
     elif website == "getchu_dmm":
         json_data = json.loads(getchu_dmm.main(file_number, appoint_url, log_info, req_web, language))
-    elif website == "hanime1":
-        json_data = json.loads(hanime1.main(file_number, appoint_url, log_info, req_web, language))
+    elif website == "hanimation":
+        json_data = json.loads(hanimation.main(file_number, appoint_url, log_info, req_web, language))
     elif website == "mywife":
         json_data = json.loads(mywife.main(file_number, appoint_url, log_info, req_web, language))
     elif website == "giga":

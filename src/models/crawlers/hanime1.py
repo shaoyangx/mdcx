@@ -27,7 +27,7 @@ def get_outline(html):
 def get_tag(html):
     result = html.xpath('//div[@style="margin-bottom: 18px; font-weight: normal"]/a/text()')
     # 清理Tag中的标签
-    result = [tag for tag in result if not re.match(r'^(1080(P)*)$', tag, re.IGNORECASE)] 
+    result = [tag for tag in result if not re.match(r'(^(1080(P)*)$|新番預告)', tag, re.IGNORECASE)] 
     return ",".join(result) if result else ""
 
 def retry_request(html_info, log_info, web_info):
@@ -188,7 +188,7 @@ def main(number,appoint_url="",log_info="",req_web="",language="zh_cn"):
 if __name__ == "__main__":
     # 测试代码
     #print(main("OVAスケベエルフ探訪記"))
-    print(main("OVAスケベエルフ探訪記 #2"))
+    print(main('神聖昂燐ダクリュオン・ルナ223 前編 '))
     # 测试搜索功能
     # results = search("巨乳", 1)
     # print(f"搜索结果数量: {len(results)}")
